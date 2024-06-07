@@ -1,9 +1,14 @@
-<!-- <script setup>
+<script setup>
 import { ref } from "vue";
 const count = ref(0);
-</script> -->
-<script>
+
+function increament() {
+  count.value++;
+}
+</script>
+<!-- <script>
 export default {
+import { ref }
   // Properties returned from data() become reactive state
   // and will be exposed on `this`.
   data() {
@@ -27,13 +32,13 @@ export default {
     console.log(`The initial count is ${this.count}.`);
   },
 };
-</script>
+</script> -->
 
 <template>
   <section class="head">
     <div class="section-one">
       <h1>Part 1</h1>
-      <button @click="count++">Count is: {{ count }}</button>
+      <button @click="increament">Count is: {{ count }}</button>
     </div>
     <div class="section-two">
       <h1>Hello World!</h1>
