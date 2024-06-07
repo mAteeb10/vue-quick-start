@@ -36,7 +36,7 @@ export default {
       <button @click="count++">Count is: {{ count }}</button>
     </div>
     <div class="section-two">
-      <h1>Part 2</h1>
+      <h1>Hello World!</h1>
     </div>
   </section>
 </template>
@@ -71,8 +71,9 @@ export default {
   flex-direction: column;
   margin-top: 20px;
   /* top: 50%; */
-  border: solid 1px;
+  border: solid 1px grey;
   width: 1000px;
   align-items: center;
+  color: red;
 }
 </style>
