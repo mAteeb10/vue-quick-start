@@ -4,9 +4,14 @@ const counter = reactive({ count: 0 });
 const message = ref("Hello World!");
 const text = ref("");
 const count = ref(0);
+const awesome = ref(true);
 
-function increament () {
-  count.value++
+function increament() {
+  count.value++;
+}
+
+function toggle() {
+  awesome.value = !awesome.value;
 }
 </script>
 <!-- <script>
@@ -51,6 +56,11 @@ import { ref }
       <input v-model="text" placeholder="Type here" />
       <p>{{ text }}</p>
     </div>
+    <div class="toggle-button">
+      <button @click="toggle">Toggle</button>
+      <h1 v-if="awesome">Vue is awesome</h1>
+      <h1 v-else>oh no 😥</h1>
+    </div>
   </section>
 </template>
 
@@ -91,6 +101,12 @@ import { ref }
 }
 
 .head .section-three {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.head .toggle-button {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
