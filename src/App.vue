@@ -3,6 +3,11 @@ import { reactive, ref } from "vue";
 const counter = reactive({ count: 0 });
 const message = ref("Hello World!");
 const text = ref("");
+const count = ref(0);
+
+function increament () {
+  count.value++
+}
 </script>
 <!-- <script>
 export default {
@@ -40,6 +45,7 @@ import { ref }
     </div>
     <div class="section-two">
       <p>count is: {{ counter.count }}</p>
+      <button @click="increament">Count is {{ count }}</button>
     </div>
     <div class="section-three">
       <input v-model="text" placeholder="Type here" />
