@@ -2,6 +2,7 @@
 import { reactive, ref } from "vue";
 const counter = reactive({ count: 0 });
 const message = ref("Hello World!");
+const text = ref("");
 </script>
 <!-- <script>
 export default {
@@ -40,7 +41,10 @@ import { ref }
     <div class="section-two">
       <p>count is: {{ counter.count }}</p>
     </div>
-    <div></div>
+    <div class="section-three">
+      <input v-model="text" placeholder="Type here" />
+      <p>{{ text }}</p>
+    </div>
   </section>
 </template>
 
@@ -78,5 +82,11 @@ import { ref }
   width: 1000px;
   align-items: center;
   color: red;
+}
+
+.head .section-three {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
 }
 </style>
