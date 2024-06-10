@@ -1,10 +1,7 @@
 <script setup>
-import { ref } from "vue";
-const count = ref(0);
-
-function increament() {
-  count.value++;
-}
+import { reactive, ref } from "vue";
+const counter = reactive({ count: 0 });
+const message = ref("Hello World!");
 </script>
 <!-- <script>
 export default {
@@ -38,11 +35,12 @@ import { ref }
   <section class="head">
     <div class="section-one">
       <h1>Part 1</h1>
-      <button @click="increament">Count is: {{ count }}</button>
+      <h1>{{ message }}</h1>
     </div>
     <div class="section-two">
-      <h1>Hello World!</h1>
+      <p>count is: {{ counter.count }}</p>
     </div>
+    <div></div>
   </section>
 </template>
 
