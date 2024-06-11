@@ -1,5 +1,5 @@
 <script setup>
-import { reactive, ref } from "vue";
+import { reactive, ref, computed } from "vue";
 const counter = reactive({ count: 0 });
 const message = ref("Hello World!");
 const text = ref("");
@@ -16,10 +16,14 @@ function toggle() {
 
 let id = 0;
 const newTodo = ref("");
+const hideCompleted = ref(false);
 const todos = ref([]);
 
+const filteredTodos = computed(() => {
+  return hideCompleted.value ? todos.value.filter((t) => !t.done) : todos.value;
+});
 function addTodo() {
-  todos.value.push({ id: id++, text: newTodo.value });
+  todos.value.push({ id: id++, text: newTodo.value, done: false });
   newTodo.value = "";
 }
 
@@ -80,11 +84,15 @@ import { ref }
         <button>Add Todo</button>
       </form>
       <ul>
-        <li v-for="todo in todos" :key="todo.id">
-          {{ todo.text }}
+        <li v-for="todo in filteredTodos" :key="todo.id">
+          <input type="checkbox" v-model="todo.done" />
+          <span :class="{ done: todo.done }">{{ todo.text }}</span>
           <button @click="removeTodo(todo)">X</button>
         </li>
       </ul>
+      <button @click="hideCompleted = !hideCompleted">
+        {{ hideCompleted ? "show all" : "Hide Completed" }}
+      </button>
     </div>
   </section>
 </template>
@@ -141,5 +149,10 @@ import { ref }
   display: flex;
   flex-direction: column;
   margin-top: 20px;
+  gap: 20px;
+}
+
+.head .todo-list .done {
+  text-decoration: line-through;
 }
 </style>
