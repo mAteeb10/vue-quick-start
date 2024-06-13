@@ -1,5 +1,5 @@
 <script setup>
-import { reactive, ref, computed } from "vue";
+import { reactive, ref, computed, onMounted } from "vue";
 const counter = reactive({ count: 0 });
 const message = ref("Hello World!");
 const text = ref("");
@@ -30,6 +30,12 @@ function addTodo() {
 function removeTodo(todo) {
   todos.value = todos.value.filter((t) => t !== todo);
 }
+
+const pElementRef = ref(null);
+
+onMounted(() => {
+  pElementRef.value.textContent = "mounted!";
+});
 </script>
 <!-- <script>
 export default {
@@ -93,6 +99,9 @@ import { ref }
       <button @click="hideCompleted = !hideCompleted">
         {{ hideCompleted ? "show all" : "Hide Completed" }}
       </button>
+    </div>
+    <div>
+      <p ref="pElementRef">Hello</p>
     </div>
   </section>
 </template>
