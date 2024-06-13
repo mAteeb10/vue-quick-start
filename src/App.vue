@@ -100,7 +100,7 @@ import { ref }
         {{ hideCompleted ? "show all" : "Hide Completed" }}
       </button>
     </div>
-    <div>
+    <div class="lifecycle-hook">
       <p ref="pElementRef">Hello</p>
     </div>
   </section>
@@ -163,5 +163,10 @@ import { ref }
 
 .head .todo-list .done {
   text-decoration: line-through;
+}
+
+.head .lifecycle-hook {
+  display: flex;
+  margin-top: 20px;
 }
 </style>
